@@ -1,2 +1,1 @@
-﻿// minimal placeholder script
-console.log("Mwatha Maina blog loaded")
+﻿// minimal placeholder script`nconsole.log("Mwatha Maina blog loaded")
