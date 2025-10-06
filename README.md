@@ -1,1 +1,4 @@
-﻿# Mwatha Maina  Academic Writing Blog`nThis is a starter academic blog project for Mwatha Maina.`n## Structure`n- index.html (home)`n- blog.html (list of posts)`n- contact.html`n- posts/*.html`n- styles.css, script.js`n
+﻿# Mwatha Maina  
+
+ Academic Writing Blog
+ 
