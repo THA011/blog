@@ -4,16 +4,18 @@
 # touching any HTML.
 
 site:
-  name: "Mwatha Maina"
+  name: "Prowriters101"
+  signature: "THA_011"          # maker's mark shown in the logo & footer
+  author: "Kho Wata"           # founder pen-name used on article bylines
   tagline: "Copywriting & Creative Studio"
-  author: "Mwatha Maina"
-  email: "mwaszac2@gmail.com"
+  email: "Prowriters101@gmail.com"
   description: >-
-    Freelance copywriter and creative. Persuasive words, websites, graphic
-    design and academic writing that turn attention into paying clients.
+    Prowriters101 — a freelance copywriting and creative studio. Persuasive
+    words, websites, graphic design and expert writing that turn attention into
+    paying clients.
   footer_blurb: >-
-    Words and design that turn attention into clients — copywriting, web,
-    graphic design and academic writing.
+    Prowriters101 — words and design that turn attention into clients:
+    copywriting, web, graphic design and expert writing.
 
 # Top navigation. `key` marks the active link; `button` renders the pill CTA.
 nav:
@@ -33,12 +35,13 @@ categories:
   - { slug: "freelancing", label: "Freelancing", css: "freelancing" }
 
 home:
-  eyebrow: "Copywriting & Creative Studio"
+  eyebrow: "Prowriters101 · Copywriting & Creative Studio"
   heading: "Words that sell. Design that gets remembered."
   lead: >-
-    I'm Mwatha Maina — a freelance copywriter and creative. I help businesses,
-    founders and researchers turn attention into clients through sharp copy,
-    clean websites, considered graphic design and clear academic writing.
+    I'm Kho Wata — the wordsmith behind Prowriters101, a freelance copywriting
+    and creative studio. I help businesses, founders and students turn attention
+    into clients through sharp copy, clean websites, considered graphic design
+    and expert writing.
   stats:
     - { num: "4", label: "Services under one roof" }
     - { num: "100%", label: "Written to convert" }

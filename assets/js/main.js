@@ -1,4 +1,4 @@
-// Mwatha Maina — Copywriting & Creative Studio
+// Prowriters101 — Copywriting & Creative Studio (THA_011)
 // Progressive enhancement: mobile nav, blog category filtering, footer year, contact form.
 
 (function () {
@@ -56,7 +56,8 @@
         "Project type: " + project + "\n\n" +
         message
       );
-      window.location.href = "mailto:mwaszac2@gmail.com?subject=" + subject + "&body=" + body;
+      var recipient = form.getAttribute("data-email") || "Prowriters101@gmail.com";
+      window.location.href = "mailto:" + recipient + "?subject=" + subject + "&body=" + body;
     });
   }
 })();

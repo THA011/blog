@@ -1,20 +1,26 @@
 ---
 title: "About"
-eyebrow: "About"
-heading: "Hi, I'm Mwatha Maina."
+eyebrow: "About Prowriters101"
+heading: "I'm Kho Wata — the studio is Prowriters101."
 lead: >-
-  I'm a freelance copywriter and creative. I started out helping researchers
-  write clearly — and discovered that the same skill, saying the true thing in
-  the fewest, sharpest words, is exactly what businesses need to win customers.
+  Prowriters101 is my freelance copywriting and creative studio. I started out
+  helping researchers write clearly — and discovered that the same skill, saying
+  the true thing in the fewest, sharpest words, is exactly what businesses need
+  to win customers.
 ---
 
-This blog began as an academic writing project. That origin still matters:
+**Prowriters101** is a studio brand, signed **THA_011**. Working under a studio
+name keeps the focus where it belongs — on your project and your results, not on
+a CV. Behind it is one dependable wordsmith and a simple promise: clear, honest,
+persuasive work delivered on time.
+
+The studio began as an academic writing project. That origin still matters:
 academic writing taught me to respect the reader's time, to build an argument
 step by step, and to earn every claim with evidence. Marketing copy is the same
 discipline pointed at a different goal — instead of persuading a committee,
 you're helping a real person decide.
 
-Today I work across four connected services: **copywriting** (the core),
+Prowriters101 works across four connected services: **copywriting** (the core),
 **web design**, **graphic design** and **academic writing**. They fit together
 because a message only works when the words, the layout and the visuals all say
 the same thing.
@@ -37,3 +43,5 @@ right choice is obvious.
 - You have solid research and need it to read clearly and rigorously.
 
 If any of those sound familiar, we should talk.
+
+*— Kho Wata, Prowriters101 (THA_011)*

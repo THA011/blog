@@ -72,7 +72,7 @@ class SiteBuilder:
             "blog.html",
             posts=posts,
             page_title=f"Blog — {self.config.site['name']}",
-            page_description="Marketing, copywriting, web and design articles by Mwatha Maina.",
+            page_description=f"Marketing, copywriting, web and design articles by {self.config.site['name']}.",
             **self._base_context(active="blog", root_prefix=""),
         )
         self._write("blog.html", html)

@@ -1,8 +1,13 @@
-# Mwatha Maina — Copywriting & Creative Studio
+# Prowriters101 — Copywriting & Creative Studio (THA_011)
 
-A marketing blog and portfolio site for **Mwatha Maina**, a freelance
-**copywriter** and creative offering copywriting (the core service), web design,
-graphic design and academic writing.
+A marketing blog and portfolio site for **Prowriters101** (signed **THA_011**), a
+freelance **copywriting** and creative studio offering copywriting (the core
+service), web design, graphic design and academic writing. The brand is
+deliberately kept separate from the founder's day job — the founder writes under
+the pen-name **Kho Wata**.
+
+> Rebranding is a one-file change: edit `site.name`, `site.signature`,
+> `site.author` and `site.email` in `config.yaml`, then rebuild.
 
 It began as a small academic-writing blog and has been scaled into a full,
 content-driven marketing site: the blog demonstrates the writing on offer, and
@@ -113,4 +118,4 @@ be wired to Formspree or Netlify Forms if real submission handling is needed.
 
 ## Contact
 
-Mwatha Maina — [mwaszac2@gmail.com](mailto:mwaszac2@gmail.com)
+Prowriters101 (THA_011) — [Prowriters101@gmail.com](mailto:Prowriters101@gmail.com)

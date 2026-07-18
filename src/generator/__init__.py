@@ -1,4 +1,4 @@
-"""Static site generator for the Mwatha Maina copywriting blog.
+"""Static site generator for the Prowriters101 copywriting blog.
 
 Modules:
     config   -- load and validate config.yaml

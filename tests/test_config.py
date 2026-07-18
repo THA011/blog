@@ -7,7 +7,7 @@ from src.generator.config import load_config
 
 def test_loads_required_sections(project_root):
     cfg = load_config(project_root / "config.yaml")
-    assert cfg.site["name"] == "Mwatha Maina"
+    assert cfg.site["name"] == "Prowriters101"
     assert cfg.nav
     assert cfg.categories
     assert cfg.services

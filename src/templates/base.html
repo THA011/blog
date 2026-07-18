@@ -10,7 +10,7 @@
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="{{ root }}index.html">{{ site.name }}<span>.</span></a>
+      <a class="brand" href="{{ root }}index.html">{{ site.name }}<span>.</span>{% if site.signature %}<sup class="sig">{{ site.signature }}</sup>{% endif %}</a>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
       <nav class="nav-links">
         {% for item in nav -%}
@@ -51,7 +51,7 @@
       </div>
       <div class="footer-bottom">
         <span>&copy; <span data-year>{{ year }}</span> {{ site.name }}. All rights reserved.</span>
-        <span>{{ site.tagline }}</span>
+        <span>{{ site.tagline }}{% if site.signature %} &middot; {{ site.signature }}{% endif %}</span>
       </div>
       {% endblock %}
     </div>
