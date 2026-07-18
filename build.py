@@ -15,6 +15,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+# Run from anywhere: put the repo root on the path so ``src`` imports resolve
+# whether you call this as ``python build.py`` or ``python /path/to/build.py``.
 sys.path.insert(0, str(ROOT))
 
 from src.generator.site import build_site, configure_logging  # noqa: E402

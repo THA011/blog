@@ -1,4 +1,10 @@
-"""Orchestrate a full build: config + content -> rendered static site."""
+"""Orchestrate a full build: config + content -> rendered static site.
+
+This is the conductor. config.py and content.py do the reading, renderer.py does
+the templating; here we wire them together in the right order and write the
+finished pages out. Output lands at the repo root on purpose so GitHub Pages can
+serve it with zero configuration.
+"""
 
 from __future__ import annotations
 
@@ -36,6 +42,9 @@ class SiteBuilder:
         logger.info("wrote %s (%d bytes)", relpath, len(html))
 
     def _base_context(self, active: str, root_prefix: str) -> dict:
+        # Everything every template needs, in one place. ``active`` highlights
+        # the current nav link; ``root`` is "" at the root and "../" for posts
+        # so links and asset paths resolve from either depth.
         assert self.config is not None
         return {
             "site": self.config.site,
@@ -49,6 +58,8 @@ class SiteBuilder:
     # -- build steps -----------------------------------------------------
 
     def copy_assets(self) -> None:
+        # Ship src/assets verbatim to /assets. Wipe first so deleted or renamed
+        # files never linger in the output from a previous build.
         src_assets = self.src / "assets"
         dest_assets = self.output / "assets"
         if dest_assets.exists():
@@ -78,6 +89,8 @@ class SiteBuilder:
         self._write("blog.html", html)
 
     def build_home(self, posts: list[Post]) -> None:
+        # Feature the exact posts named in config, in that order -- editorial
+        # choice beats "newest three". Unknown slugs are skipped, not fatal.
         by_slug = {p.slug: p for p in posts}
         featured = [by_slug[s] for s in self.config.home.get("featured", []) if s in by_slug]
         html = self.renderer.render(
@@ -108,6 +121,8 @@ class SiteBuilder:
     # -- entry point -----------------------------------------------------
 
     def build(self) -> list[Path]:
+        # Load config first: if it's invalid we stop here, before writing a
+        # single file, so a bad edit can't leave a half-updated site on disk.
         self.written = []
         self.config = load_config(self.root / "config.yaml")
         logger.info("loaded config for %s", self.config.site["name"])

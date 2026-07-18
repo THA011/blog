@@ -1,10 +1,16 @@
 // Prowriters101 — Copywriting & Creative Studio (THA_011)
-// Progressive enhancement: mobile nav, blog category filtering, footer year, contact form.
+//
+// Progressive enhancement, on purpose: the site is fully readable with zero
+// JavaScript (all posts render server-side; the form degrades to a plain
+// mailto). This file only *improves* the experience -- nav, filtering, a live
+// year and a friendlier contact hand-off. Every block guards its own elements,
+// so one missing feature never breaks the rest of the page.
 
 (function () {
   "use strict";
 
-  // Mobile navigation toggle
+  // --- Mobile navigation -------------------------------------------------
+  // Toggle the menu and keep aria-expanded honest for screen readers.
   var toggle = document.querySelector(".nav-toggle");
   var links = document.querySelector(".nav-links");
   if (toggle && links) {
@@ -14,7 +20,8 @@
     });
   }
 
-  // Blog category filtering
+  // --- Blog category filter ----------------------------------------------
+  // Show/hide cards client-side. No reload, no server -- just fast filtering.
   var filters = document.querySelectorAll("[data-filter]");
   var posts = document.querySelectorAll("[data-category]");
   var noResults = document.querySelector(".no-results");
@@ -36,11 +43,15 @@
     });
   }
 
-  // Footer year
+  // --- Footer year -------------------------------------------------------
+  // Set once at load so the copyright never silently goes stale.
   var yearEl = document.querySelector("[data-year]");
   if (yearEl) { yearEl.textContent = String(new Date().getFullYear()); }
 
-  // Contact form (front-end only — mailto fallback so it works on static hosting)
+  // --- Contact form ------------------------------------------------------
+  // No backend by design: we compose a pre-filled mailto so the site stays a
+  // pure static deploy. The recipient comes from data-email (set from
+  // config.yaml) so the address lives in exactly one place.
   var form = document.querySelector("#contact-form");
   if (form) {
     form.addEventListener("submit", function (e) {
