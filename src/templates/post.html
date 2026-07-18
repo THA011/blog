@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <article>
+      <div class="container article-head">
+        <span class="tag {{ post.category_css }}">{{ post.category_label }}</span>
+        <h1>{{ post.title }}</h1>
+        <p class="meta">By {{ site.author }} &middot; {{ post.read_time }}</p>
+      </div>
+
+      <div class="container article-body">
+        {{ post.body | safe }}
+      </div>
+
+      {% if post.callout_title %}
+      <div class="container">
+        <div class="callout">
+          <h3>{{ post.callout_title }}</h3>
+          <p>{{ post.callout_text }}</p>
+          <a href="{{ root }}contact.html" class="btn light">{{ post.callout_cta | default('Start a project') }}</a>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="container article-body">
+        <p><a href="{{ root }}blog.html">&larr; Back to all articles</a></p>
+      </div>
+    </article>
+{% endblock %}

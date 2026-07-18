@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="hero" style="padding:56px 0 40px">
+      <div class="container">
+        {% if page.eyebrow %}<p class="eyebrow">{{ page.eyebrow }}</p>{% endif %}
+        <h1>{{ page.heading | default(page.title, true) }}</h1>
+        {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width:720px">
+        {{ page.body | safe }}
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="container">
+        <div class="cta-band">
+          <h2>Let's make your words work harder</h2>
+          <p>Tell me about your project and I'll tell you honestly whether I'm the right person for it.</p>
+          <a href="{{ root }}contact.html" class="btn light">Get in touch</a>
+        </div>
+      </div>
+    </section>
+{% endblock %}

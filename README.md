@@ -1,60 +1,116 @@
-# Mwatha Maina — Copywriting & Creative Studio (Blog)
+# Mwatha Maina — Copywriting & Creative Studio
 
-A marketing blog and mini-site for **Mwatha Maina**, freelance copywriter and creative.
-It began as an academic-writing blog; it's now scaled into a lead-generating site for a
-freelance copywriting business, with supporting services in web design, graphic design and
-academic writing.
+A marketing blog and portfolio site for **Mwatha Maina**, a freelance
+**copywriter** and creative offering copywriting (the core service), web design,
+graphic design and academic writing.
 
-## Purpose
+It began as a small academic-writing blog and has been scaled into a full,
+content-driven marketing site: the blog demonstrates the writing on offer, and
+every page funnels toward starting a project.
 
-The blog is a marketing engine: each article gives readers something useful *and*
-demonstrates the writing/design skills clients can hire. Every page funnels toward one
-action — starting a project.
+## How it works
 
-## Structure
+This is a **static site** produced by a small, dependency-light **static site
+generator** written in Python. You edit content and configuration; a build step
+renders the finished HTML. Nothing is hand-maintained twice — the header, footer
+and nav come from one template, and every post is a Markdown file.
 
 ```
-index.html          Home — value proposition, services snapshot, featured posts, CTA
-blog.html           Blog index with client-side category filtering
-services.html       The four services + how we work together
-about.html          Positioning and story (academic roots → copywriting)
-contact.html        Enquiry form (mailto-based) + how to get in touch
-styles.css          Design system (variables, components, responsive)
-script.js           Mobile nav, category filtering, footer year, contact form
-posts/              Individual articles
-  copywriting-that-converts.html
-  website-copy-that-sells.html
-  web-design-that-converts.html
-  design-that-communicates.html
-  pricing-copywriting-projects.html
-  clear-argument.html            (academic — original, upgraded)
-  reproducible-research.html     (academic — original, upgraded)
+blog/
+├── README.md              Project description, setup, architecture
+├── requirements.txt       Build/test dependencies (Jinja2, Markdown, PyYAML, pytest)
+├── .gitignore             Ignore venv, caches, build logs
+├── config.yaml            Single source of truth: site meta, nav, categories, services, page copy
+├── build.py               Entry point — `python build.py` builds the site
+├── src/
+│   ├── generator/         The generator, split into focused modules
+│   │   ├── config.py      Load & validate config.yaml
+│   │   ├── content.py     Parse Markdown + YAML frontmatter into Page/Post objects
+│   │   ├── renderer.py    Jinja2 environment wrapper
+│   │   └── site.py        Orchestrates a full build (+ logging)
+│   ├── templates/         Jinja2 templates (base, home, blog, post, page, services, contact)
+│   └── assets/            Source CSS & JS (copied to assets/ on build)
+├── content/
+│   ├── pages/             Prose pages as Markdown (about)
+│   └── posts/             Blog posts as Markdown + frontmatter
+├── tests/                 pytest suite: config, content parsing, build output, link integrity
+├── logs/                  Build logs (gitignored)
+└── *.html, assets/        Generated output, served at the repo root (GitHub Pages friendly)
 ```
 
-## Content categories
+### Design principles (mirrored from the structure)
 
-Copywriting (core), Web Design, Graphic Design, Academic Writing, Freelancing.
-The blog index filters posts by these categories.
+- **Configuration is separate from code.** Nav, categories, services and page
+  copy live in `config.yaml`; you never touch HTML to change them.
+- **Content is separate from presentation.** Posts are Markdown in
+  `content/posts/`; layout is Jinja2 in `src/templates/`.
+- **Clean, modular, testable.** The generator is split into small modules, each
+  covered by tests, so the project stays easy to maintain and extend.
 
-## Tech
-
-Plain, dependency-free static HTML/CSS/JS — no build step. Works on any static host
-(GitHub Pages, Netlify, etc.).
-
-## Run locally
-
-Open `index.html` directly, or serve the folder:
+## Getting started
 
 ```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000
+# 1. Install dependencies (ideally in a virtualenv)
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+# 2. Build the site (regenerates the HTML at the repo root)
+python build.py
+
+# 3. Preview locally
+python -m http.server 8000
+# then open http://localhost:8000
 ```
 
-## Deploy
+## Adding a blog post
 
-Push to a static host. For GitHub Pages, enable Pages on the default branch — the site is
-served as-is from the repo root.
+1. Create `content/posts/my-post.md` with frontmatter:
+
+   ```markdown
+   ---
+   title: "My Post Title"
+   category: "copywriting"      # must match a slug in config.yaml
+   description: "One-line excerpt shown on cards."
+   read_time: "5 min read"
+   date: "2026-07-20"
+   callout_title: "Want copy like this?"
+   callout_text: "Tell me about your project."
+   callout_cta: "Start a project"
+   ---
+
+   Your article body in **Markdown**.
+   ```
+
+2. Run `python build.py`. The post, the blog index and (optionally) the home
+   page update automatically.
+
+To feature a post on the home page, add its filename (without `.md`) to
+`home.featured` in `config.yaml`.
+
+## Blog categories
+
+Copywriting · Web Design · Graphic Design · Academic Writing · Freelancing
+(defined in `config.yaml` and used for the blog's live category filter).
+
+## Testing
+
+```bash
+python -m pytest
+```
+
+Tests cover config validation, frontmatter/Markdown parsing, the built output
+(page counts, category counts, core-service labelling) and local link integrity.
+
+## Deployment
+
+The generated files live at the repo root, so the site can be served as-is by
+**GitHub Pages** (root of the branch), Netlify, Cloudflare Pages or any static
+host. No server-side code is required.
+
+The contact form uses a `mailto:` handoff so it works on static hosting; it can
+be wired to Formspree or Netlify Forms if real submission handling is needed.
 
 ## Contact
 
-Mwatha Maina — mwaszac2@gmail.com
+Mwatha Maina — [mwaszac2@gmail.com](mailto:mwaszac2@gmail.com)

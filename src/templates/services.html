@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="hero" style="padding:56px 0 40px">
+      <div class="container">
+        <p class="eyebrow">Services</p>
+        <h1>Copywriting first. Everything else makes it land.</h1>
+        <p class="lead">Most freelancers sell you a deliverable. I sell you a result: more of the right people taking the action you want. Words do most of that work — design, web and structure amplify it.</p>
+        <div class="hero-actions">
+          <a href="{{ root }}contact.html" class="btn">Request a quote</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width:820px">
+        {% for service in site.services -%}
+        <div class="service">
+          <span class="icon">{{ service.icon | safe }}</span>
+          <div>
+            <h3>{{ service.title }}{% if service.core %} <span class="tag" style="vertical-align:middle">Core service</span>{% endif %}</h3>
+            <p>{{ service.summary }}</p>
+            <ul>
+              {% for bullet in service.bullets -%}
+              <li>{{ bullet }}</li>
+              {% endfor -%}
+            </ul>
+          </div>
+        </div>
+        {% endfor -%}
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="container">
+        <div class="section-head center">
+          <h2>How we'd work together</h2>
+          <p>A simple, transparent process — no jargon, no surprises.</p>
+        </div>
+        <div class="grid cols-4">
+          {% for step in site.process -%}
+          <div class="card">
+            <span class="icon">{{ step.num }}</span>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.text }}</p>
+          </div>
+          {% endfor -%}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-band">
+          <h2>Ready when you are</h2>
+          <p>Send me a few lines about your project. I'll reply within a day with honest advice on the best way forward.</p>
+          <a href="{{ root }}contact.html" class="btn light">Start a project</a>
+        </div>
+      </div>
+    </section>
+{% endblock %}
