@@ -116,6 +116,27 @@ host. No server-side code is required.
 The contact form uses a `mailto:` handoff so it works on static hosting; it can
 be wired to Formspree or Netlify Forms if real submission handling is needed.
 
-## Contact
+## Author & maintainer
 
-Prowriters101 (THA_011) — [Prowriters101@gmail.com](mailto:Prowriters101@gmail.com)
+Built and maintained by **Mwatha Maina** — writing under the studio brand
+**Prowriters101**, signed **THA_011**. The brand is deliberately kept separate
+from my day-to-day name so the site stays focused on freelance work; this section
+is the developer-facing record of who owns the repo.
+
+| | |
+|---|---|
+| **Maintainer** | Mwatha Maina (`THA_011`) |
+| **GitHub** | [github.com/THA011](https://github.com/THA011) |
+| **LinkedIn** | [mwatha-maina](https://www.linkedin.com/in/mwatha-maina-a44146238) |
+| **Email** | [mwaszac2@gmail.com](mailto:mwaszac2@gmail.com) |
+| **Academic** | [maina.mwatha@students.jkuat.ac.ke](mailto:maina.mwatha@students.jkuat.ac.ke) |
+
+## Client contact (public brand)
+
+For project enquiries, the site points clients to the studio:
+**Prowriters101** — [Prowriters101@gmail.com](mailto:Prowriters101@gmail.com)
+
+## License
+
+© Mwatha Maina (Prowriters101 · THA_011). All rights reserved. The code is a
+personal project; please ask before reusing the content or brand.

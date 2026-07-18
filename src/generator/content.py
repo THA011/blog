@@ -1,4 +1,11 @@
-"""Parse Markdown content with YAML frontmatter into Page/Post objects."""
+"""Parse Markdown content with YAML frontmatter into Page/Post objects.
+
+Writing is the product here, so writing should be the easy part: every article
+is a plain Markdown file with a small YAML header (title, category, date...).
+Authors never touch HTML. This module reads those files, checks the header has
+what we need, renders the body, and hands back tidy typed objects the templates
+can trust.
+"""
 
 from __future__ import annotations
 
@@ -35,11 +42,16 @@ def parse_frontmatter(text: str) -> tuple[dict[str, Any], str]:
 
 
 def render_markdown(body: str) -> str:
+    # "extra" gives us tables, fenced code and footnotes; "sane_lists" stops
+    # adjacent lists from bleeding into one another. Enough for prose, no more.
     return markdown.markdown(body, extensions=["extra", "sane_lists"])
 
 
 @dataclass
 class Page:
+    """A standalone prose page (e.g. About). Simpler than a Post -- no category,
+    no date, no callout, just a heading and rendered body."""
+
     slug: str
     title: str
     body: str  # rendered HTML
@@ -50,6 +62,9 @@ class Page:
 
 @dataclass
 class Post:
+    """A blog article. Carries both the content and the presentation metadata a
+    card/article template needs, so templates stay logic-free."""
+
     slug: str
     title: str
     category: str
@@ -65,6 +80,7 @@ class Post:
 
     @property
     def url(self) -> str:
+        # Posts live one directory deep; templates prefix root="../" to match.
         return f"posts/{self.slug}.html"
 
 
@@ -83,9 +99,12 @@ def load_page(path: str | Path) -> Page:
 
 
 def load_post(path: str | Path, config: SiteConfig) -> Post:
+    """Load a single post, validating it against the site's categories."""
     path = Path(path)
     meta, body = parse_frontmatter(path.read_text(encoding="utf-8"))
 
+    # These four earn a post its place on a card; without them it can't render
+    # correctly, so refuse the build instead of shipping a broken tile.
     required = ("title", "category", "description", "read_time")
     missing = [k for k in required if k not in meta]
     if missing:

@@ -1,3 +1,12 @@
+{#
+  base.html -- the one shell every page extends: <head>, header/nav and footer.
+  Change the chrome here and it changes everywhere (no more editing 12 files).
+
+  Two variables do the heavy lifting, both set in site.py:
+    * root   -- "" for root pages, "../" for posts, so links/assets resolve from
+                any depth without hard-coding absolute paths.
+    * active -- the current page's nav key, used to highlight the right link.
+#}
 <!doctype html>
 <html lang="en">
 <head>
