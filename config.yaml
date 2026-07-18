@@ -1,0 +1,110 @@
+# Site configuration — single source of truth for the blog.
+# Content lives in content/; presentation lives in src/templates/.
+# Edit this file to change nav, categories, services, or page copy without
+# touching any HTML.
+
+site:
+  name: "Prowriters101"
+  signature: "THA_011"          # maker's mark shown in the logo & footer
+  author: "Kho Wata"           # founder pen-name used on article bylines
+  tagline: "Copywriting & Creative Studio"
+  email: "Prowriters101@gmail.com"
+  description: >-
+    Prowriters101 — a freelance copywriting and creative studio. Persuasive
+    words, websites, graphic design and expert writing that turn attention into
+    paying clients.
+  footer_blurb: >-
+    Prowriters101 — words and design that turn attention into clients:
+    copywriting, web, graphic design and expert writing.
+
+# Top navigation. `key` marks the active link; `button` renders the pill CTA.
+nav:
+  - { label: "Home", url: "index.html", key: "home" }
+  - { label: "Blog", url: "blog.html", key: "blog" }
+  - { label: "Services", url: "services.html", key: "services" }
+  - { label: "About", url: "about.html", key: "about" }
+  - { label: "Hire me", url: "contact.html", key: "contact", button: true }
+
+# Blog categories. `slug` matches each post's `category` in frontmatter;
+# `css` selects the coloured tag style in styles.css.
+categories:
+  - { slug: "copywriting", label: "Copywriting", css: "" }
+  - { slug: "web", label: "Web Design", css: "web" }
+  - { slug: "graphic", label: "Graphic Design", css: "graphic" }
+  - { slug: "academic", label: "Academic Writing", css: "academic" }
+  - { slug: "freelancing", label: "Freelancing", css: "freelancing" }
+
+home:
+  eyebrow: "Prowriters101 · Copywriting & Creative Studio"
+  heading: "Words that sell. Design that gets remembered."
+  lead: >-
+    I'm Kho Wata — the wordsmith behind Prowriters101, a freelance copywriting
+    and creative studio. I help businesses, founders and students turn attention
+    into clients through sharp copy, clean websites, considered graphic design
+    and expert writing.
+  stats:
+    - { num: "4", label: "Services under one roof" }
+    - { num: "100%", label: "Written to convert" }
+    - { num: "24h", label: "Typical reply time" }
+  # Slugs of posts to feature on the home page (must match files in content/posts).
+  featured:
+    - "copywriting-that-converts"
+    - "website-copy-that-sells"
+    - "pricing-copywriting-projects"
+
+# Services offered. Order matters; the first is treated as the core service.
+services:
+  - icon: "&#9998;"
+    title: "Copywriting"
+    core: true
+    summary: >-
+      The words that carry your offer. I research your audience, sharpen your
+      message, and write copy that reads naturally while quietly doing the work
+      of persuasion.
+    short: "Websites, landing pages, emails and product copy engineered to persuade and convert."
+    bullets:
+      - "Website & landing page copy"
+      - "Sales & email sequences"
+      - "Product descriptions and ad copy"
+      - "Taglines, brand messaging and positioning"
+  - icon: "&#128187;"
+    title: "Web Design"
+    summary: >-
+      Clean, fast, responsive websites where copy and layout are designed
+      together — so nothing gets in the way of the reader saying yes.
+    short: "Fast, responsive sites where the message and layout work together to drive action."
+    bullets:
+      - "Static sites and landing pages"
+      - "Portfolio and small-business sites"
+      - "Conversion-focused page structure"
+      - "Mobile-first, accessible builds"
+  - icon: "&#127912;"
+    title: "Graphic Design"
+    summary: >-
+      Visual identity that makes small businesses look established and
+      trustworthy — consistent, considered, and never noisy.
+    short: "Brand identities, social graphics and visuals that make you look established."
+    bullets:
+      - "Logos and brand kits"
+      - "Social media graphics and templates"
+      - "Posters, flyers and simple brochures"
+      - "Slide decks and one-pagers"
+  - icon: "&#128218;"
+    title: "Academic Writing"
+    summary: >-
+      Where this blog began — and still a service I love. Clear, rigorous,
+      well-structured research writing and editing that respects your ideas and
+      your reader.
+    short: "Clear, rigorous, well-structured research writing and editing for scholars."
+    bullets:
+      - "Structuring and editing papers"
+      - "Literature reviews and summaries"
+      - "Proofreading and clarity edits"
+      - "Reproducibility and presentation guidance"
+
+# "How we'd work together" steps on the services page.
+process:
+  - { num: "1", title: "Discovery", text: "You tell me your goal, audience and deadline. I ask the questions that shape great copy." }
+  - { num: "2", title: "Proposal", text: "A fixed price and clear scope within 24 hours — so you know exactly what you're getting." }
+  - { num: "3", title: "Draft", text: "I write, then share a first draft with the thinking behind it. Two rounds of revisions included." }
+  - { num: "4", title: "Delivery", text: "Final files, ready to publish — plus notes on how to use them well." }

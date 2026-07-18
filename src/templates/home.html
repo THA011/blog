@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">{{ site.home.eyebrow }}</p>
+        <h1>{{ site.home.heading }}</h1>
+        <p class="lead">{{ site.home.lead }}</p>
+        <div class="hero-actions">
+          <a href="{{ root }}contact.html" class="btn">Start a project</a>
+          <a href="{{ root }}blog.html" class="btn ghost">Read the blog</a>
+        </div>
+        <div class="stats">
+          {% for stat in site.home.stats -%}
+          <div class="stat"><div class="num">{{ stat.num }}</div><div class="label">{{ stat.label }}</div></div>
+          {% endfor -%}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>What I do</h2>
+          <p>One partner for the words and visuals that grow your business. Copywriting is the core — everything else exists to make those words land.</p>
+        </div>
+        <div class="grid cols-4">
+          {% for service in site.services -%}
+          <div class="card">
+            <span class="icon">{{ service.icon | safe }}</span>
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.short }}</p>
+          </div>
+          {% endfor -%}
+        </div>
+        <p class="mt-0" style="margin-top:24px"><a href="{{ root }}services.html" class="read">See services &amp; how we'd work together &rarr;</a></p>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="container">
+        <div class="section-head">
+          <h2>From the blog</h2>
+          <p>Practical marketing and writing ideas you can use today. This is where I show my thinking — and my copywriting — in the open.</p>
+        </div>
+        <div class="grid cols-3">
+          {% for post in featured_posts -%}
+          <article class="card post-card">
+            <span class="tag {{ post.category_css }}">{{ post.category_label }}</span>
+            <div class="meta" style="margin-top:10px">{{ post.read_time }}</div>
+            <h3><a href="{{ root }}{{ post.url }}">{{ post.title }}</a></h3>
+            <p class="excerpt">{{ post.description }}</p>
+            <a class="read" href="{{ root }}{{ post.url }}">Read article &rarr;</a>
+          </article>
+          {% endfor -%}
+        </div>
+        <p style="margin-top:26px"><a href="{{ root }}blog.html" class="read">Browse all articles &rarr;</a></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-band">
+          <h2>Have a project in mind?</h2>
+          <p>Tell me what you're building and who it's for. I'll reply within a day with how I can help and what it would cost.</p>
+          <a href="{{ root }}contact.html" class="btn light">Start a project</a>
+        </div>
+      </div>
+    </section>
+{% endblock %}

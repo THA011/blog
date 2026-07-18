@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="hero" style="padding:56px 0 40px">
+      <div class="container">
+        <p class="eyebrow">The Blog</p>
+        <h1>Marketing, writing &amp; design — in plain language.</h1>
+        <p class="lead">Every article here does two jobs: it gives you something useful for free, and it shows you exactly how I think and write. That's the whole point of a copywriter's blog.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="filters" role="tablist" aria-label="Filter posts by category">
+          <button class="filter active" data-filter="all">All</button>
+          {% for cat in categories -%}
+          <button class="filter" data-filter="{{ cat.slug }}">{{ cat.label }}</button>
+          {% endfor -%}
+        </div>
+
+        <div class="grid cols-3" id="post-grid">
+          {% for post in posts -%}
+          <article class="card post-card" data-category="{{ post.category }}">
+            <span class="tag {{ post.category_css }}">{{ post.category_label }}</span>
+            <div class="meta" style="margin-top:10px">{{ post.read_time }}</div>
+            <h3><a href="{{ root }}{{ post.url }}">{{ post.title }}</a></h3>
+            <p class="excerpt">{{ post.description }}</p>
+            <a class="read" href="{{ root }}{{ post.url }}">Read article &rarr;</a>
+          </article>
+          {% endfor -%}
+        </div>
+
+        <p class="no-results">No posts in this category yet — check back soon, or <a href="{{ root }}contact.html">suggest a topic</a>.</p>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="container">
+        <div class="cta-band">
+          <h2>Like how I write here?</h2>
+          <p>That's exactly the voice I'll bring to your website, emails or brand. Let's talk about your project.</p>
+          <a href="{{ root }}contact.html" class="btn light">Hire me</a>
+        </div>
+      </div>
+    </section>
+{% endblock %}

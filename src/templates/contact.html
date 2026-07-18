@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="hero" style="padding:56px 0 40px">
+      <div class="container">
+        <p class="eyebrow">Contact</p>
+        <h1>Let's start your project.</h1>
+        <p class="lead">Tell me a little about what you need. The more you share, the more useful my reply will be — and I aim to answer within one business day.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid cols-2" style="align-items:start">
+          <div class="card">
+            <form id="contact-form" data-email="{{ site.email }}" novalidate>
+              <div class="field">
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" placeholder="Jane Doe" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="jane@company.com" required>
+              </div>
+              <div class="field">
+                <label for="project">Project type</label>
+                <input id="project" name="project" type="text" placeholder="Copywriting, web design, graphic design, academic writing…">
+              </div>
+              <div class="field">
+                <label for="message">Project details</label>
+                <textarea id="message" name="message" rows="5" placeholder="What are you building, who is it for, and when do you need it?" required></textarea>
+              </div>
+              <button class="btn" type="submit">Send enquiry</button>
+              <p class="form-note" style="margin-top:12px">This form opens your email app with the details filled in. Prefer email? Write to <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+            </form>
+          </div>
+
+          <div>
+            <h2>Other ways to reach me</h2>
+            <p>Email is best for project enquiries and quotes.</p>
+            <p><strong>Email</strong><br><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+            <h3 style="margin-top:26px">What happens next</h3>
+            <ul style="color:var(--ink-soft)">
+              <li>I read your message and reply within one business day.</li>
+              <li>If it's a fit, I send a fixed-price proposal and timeline.</li>
+              <li>We agree scope, and I get to work.</li>
+            </ul>
+            <p class="muted" style="margin-top:20px">Not sure what you need yet? That's fine — describe the problem and I'll suggest the right service.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
